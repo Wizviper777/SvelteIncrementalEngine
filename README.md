@@ -22,11 +22,14 @@ One of the most time-consuming parts of making any kind of game is making sure a
 # Why Did You Do *X*?
 
 > Why is the data a separate object in each feature? Why can't I just put my state as fields in the class?
+
 When loading JSON from localstorage and using it to replace an instance of a class, the methods on that class become undefined because it's impossible to store methods in localstorage. For this reason, our state objects need to contain **no methods**.
 
 > Okay, but why does each data object need its own class?
+
 To take advantage of autocomplete and other quality of life features that typescript provides, the compiler needs to know the shape of the data, AKA the field names of the object. 
 
 > Why are there fields for features in the Game class, but they're also in the features array?
+
 When updating, saving, and loading, all of the features in the game need to be iterated through. However, for components to easily access this state they need to also be named fields on their own.
 
